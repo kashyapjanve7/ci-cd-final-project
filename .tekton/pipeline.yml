@@ -25,6 +25,7 @@ spec:
     - name: git-clone
       taskRef:
         name: git-clone
+        kind: ClusterTask
       runAfter:
         - cleanup
       params:
@@ -59,6 +60,7 @@ spec:
     - name: buildah
       taskRef:
         name: buildah
+        kind: ClusterTask
       runAfter:
         - nose-tests
       params:
@@ -78,6 +80,7 @@ spec:
     - name: deploy
       taskRef:
         name: openshift-client
+        kind: ClusterTask
       runAfter:
         - buildah
       params:
